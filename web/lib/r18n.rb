@@ -67,7 +67,7 @@ module Sinatra
                 elsif session[:locale]
                     locales.unshift(session[:locale])
                 end
-                locales.map!{ |locale| normalize_locale(locale) }
+                locales.map!{ |locale| Sinatra::R18n.normalize_locale(locale) }
 
                 i18n = ::R18n::I18n.new(
                     locales, ::R18n.default_places,
